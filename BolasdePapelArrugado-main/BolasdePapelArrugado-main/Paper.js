@@ -1,5 +1,5 @@
 class Paper{
-    constructor(x,y,width,height){
+    constructor(x,y,r){
     var options = {
         isStatic:false,
         restitution: 0.3,
@@ -7,9 +7,7 @@ class Paper{
     }
         this.x=x;
 		this.y=y;
-		this.width=width
-		this.height=height
-		this.body=Bodies.rectangle(x, y, width, height, options);
+		this.body=Bodies.circle(this.x, this.y, (this.r-20)/2, options);
  		World.add(world, this.body);
 
          this.image = loadImage("paper.png");
@@ -18,13 +16,13 @@ class Paper{
 	{
 			
 			var PaperPos=this.body.position;		
-
+			image(this.image, 0,0,this.r, this.r)
 			push()
 			translate(PaperPos.x, PaperPos.y);
 			imageMode(CENTER)
 			//strokeWeight(4);
 			fill(128,128,128)
-			rect(200,700,this.width, this.height);
+			rec(200,700,this.width, this.height);
 			pop()
 			
 	}
